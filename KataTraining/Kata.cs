@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 
 namespace KataTraining
@@ -50,9 +49,7 @@ namespace KataTraining
         }
         /// <summary>
         /// Why would we want to stop to only 50 shades of grey? Let's see to how many we can go.
-
         ///Write a function that takes a number n as a parameter and return an array containing n shades of grey in hexadecimal code (#aaaaaa for example). The array should be sorted in ascending order starting with #010101, #020202, etc. (using lower case letters).
-
         ///using System;
         ///public static class Kata {
         ///  public static class ShadesOfGrey(int n) {
@@ -97,12 +94,9 @@ namespace KataTraining
         }
         /// <summary>
         /// Description:
-
         ///Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons.
-
         ///Your mission: 
         ///Write a function called checkCoupon to verify that a coupon is valid and not expired. If the coupon is good, return true. Otherwise, return false.
-
         ///A coupon expires at the END of the expiration date. All dates will be passed in as strings in this format: "June 15, 2014"
         /// </summary>
         /// <param name="enteredCode"></param>
@@ -132,15 +126,12 @@ namespace KataTraining
 
         /// <summary>
         /// Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
-
         ///Your task is to write a function maskify, which changes all but the last four characters into '#'.
-
         ///Examples
         ///Kata.Maskify('4556364607935616'); // should return "############5616"
         ///Kata.Maskify('64607935616');      // should return "#######5616"
         ///Kata.Maskify('1');                // should return "1"
         ///Kata.Maskify('');                 // should return ""
-
         /// "What was the name of your first pet?"
         ///Kata.Maskify('Skippy');                                   // should return "##ippy"
         ///Kata.Maskify('Nananananananananananananananana Batman!'); // should return "####################################man!"
@@ -175,13 +166,9 @@ namespace KataTraining
         }
         /// <summary>
         /// Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given numbers differs from the others. Bob observed that one number usually differs from the others in evenness. Help Bob � to check his answers, he needs a program that among the given numbers finds one that is different in evenness, and return a position of this number.
-
         ///! Keep in mind that your task is to help Bob solve a real IQ test, which means indexes of the elements start from 1 (not 0)
-
         ///Examples :
-
         ///IQ.Test("2 4 7 8 10") => 3 // Third number is odd, while the rest of the numbers are even
-
         ///IQ.Test("1 2 1 1") => 2 // Second number is even, while the rest of the numbers are odd
         /// </summary>
         /// <param name="numbers"></param>
@@ -216,11 +203,8 @@ namespace KataTraining
         }
         /// <summary>
         /// Find the sum of the digits of all the numbers from 1 to N (both ends included).
-
         ///For N = 10 the sum is 1+2+3+4+5+6+7+8+9+(1+0) = 46
-
         ///For N = 11 the sum is 1+2+3+4+5+6+7+8+9+(1+0)+(1+1) = 48
-
         ///For N = 12 the sum is 1+2+3+4+5+6+7+8+9+(1+0)+(1+1) +(1+2)= 51
         /// </summary>
         /// <param name="n">Input value</param>
@@ -237,7 +221,6 @@ namespace KataTraining
 
         /// <summary>
         /// Backwards Read Primes are primes that when read backwards in base 10 (from right to left) are a different prime. (This rules out primes which are palindromes.)
-
         ///Examples:
         ///13 17 31 37 71 73 are Backwards Read Primes
         ///13 is such because it's prime and read from right to left writes 31 which is prime too. Same for the others.
@@ -291,14 +274,10 @@ namespace KataTraining
 
         /// <summary>
         /// I love Fibonacci numbers in general, but I must admit I love some more than others.
-
         ///I would like for you to write me a function that when given a number (n) returns the n-th number in the Fibonacci Sequence.
-
         ///For example:
-
         ///NthFib(4) == 2
         ///Because 2 is the 4th number in the Fibonacci Sequence.
-
         ///For reference, the first two numbers in the Fibonacci sequence are 0 and 1, and each subsequent number is the sum of the previous two.
         /// </summary>
         /// <param name="n">Nth element of Fibonachi sequence</param>
@@ -323,6 +302,7 @@ namespace KataTraining
 
         public static string Swap(string str)
         {
+            #region Obsolite Code
             //var arr = str.ToCharArray();
             //str = string.Empty;
             //foreach (var t in arr)
@@ -334,7 +314,9 @@ namespace KataTraining
             //    else
             //        str += t;
             //}
+            #endregion
             return String.Concat(str.Select(c => Char.IsLower(c) ? Char.ToUpper(c) : Char.ToLower(c)));
+            #region Obsolite Code
             //var arr = str.ToCharArray();
             //str = string.Empty;
             //foreach (var c in arr)
@@ -345,19 +327,15 @@ namespace KataTraining
             //        str += Char.ToUpper(c);
             //}
             //return str;
+            #endregion
         }
 
         /// <summary>
         /// Filter the number
-
         ///Oh no! The number has been mixed up with the text. Your goal is to retreive the number from the text, can you return the number back to it's original state?
-
         ///Task
-
         ///Your task is to return a number from a string.
-
         ///Details
-
         ///You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
         /// </summary>
         /// <param name="s"></param>
@@ -369,13 +347,9 @@ namespace KataTraining
 
         /// <summary>
         /// At a job interview, you are challenged to write an algorithm to check if a given string, s, can be formed from two other strings, part1 and part2.
-
         ///The restriction is that the characters in part1 and part2 are in the same order as in s.
-
         ///The interviewer gives you the following example and tells you to figure out the rest from the given test cases:
-
         ///'codewars' is a merge from 'cdw' and 'oears':
-
         ///    s:  c o d e w a r s   = codewars
         ///part1:  c   d   w         = cdw
         ///part2:    o   e   a r s   = oears
@@ -408,22 +382,16 @@ namespace KataTraining
 
         /// <summary>
         /// "Triple double"
-
         ///Write a function
-
         ///TripleDouble(long num1, long num2)
         ///which takes in numbers num1 and num2 and returns 1 if there is a straight triple of a number at any place in num1 and also a straight double of the same number in num2.
         ///For example:
         ///TripleDouble(451999277, 41177722899) == 1 // num1 has straight triple 999s and 
         /// num2 has straight double 99s
-
         ///TripleDouble(1222345, 12345) == 0 // num1 has straight triple 2s but num2 has only a single 2
-
         ///TripleDouble(12345, 12345) == 0
-
         ///TripleDouble(666789, 12345667) == 1
         ///If this isn't the case, return 0
-
         /// </summary>
         /// <param name="num1">First number</param>
         /// <param name="num2">Second number</param>
@@ -563,11 +531,8 @@ namespace KataTraining
         /// <summary>
         /// Descending order
         /// Your task is to make a function that can take any non-negative integer as a argument and return it with it's digits in descending order. Descending order means that you take the highest digit and place the next highest digit immediately after it.
-
         ///Examples:
-
         ///Input: 145263 Output: 654321
-
         ///Input: 1254859723 Output: 9875543221
         /// </summary>
         /// <param name="num">Input value</param>
@@ -602,20 +567,14 @@ namespace KataTraining
 
         //    public static double CalculateAreaOfCircle(string radius)
         //{   
-
-        //    return PI*r*r;
+            //    return PI*r*r;
         //}
-
 
         /// <summary>
         /// Write a function that takes in a binary string and returns the equivalent decoded text (the text is ASCII encoded).
-
         ///Each 8 bits on the binary string represent 1 character on the ASCII table.
-
         ///The input string will always be a valid binary string.
-
         ///Characters can be in the range from "00000000" to "11111111" (inclusive)
-
         ///Note: In the case of an empty binary string your function should return an empty string.
         /// </summary>
         /// <param name="binary">Input binary code</param>
@@ -640,9 +599,7 @@ namespace KataTraining
 
         /// <summary>
         /// Write a function that can return the smallest value of an array or the index of that value. The function's 2nd parameter will tell whether it should return the value or the index.
-
         ///Assume the first parameter will always be an array filled with at least 1 number and no duplicates. Assume the second parameter will be a string holding one of two values: 'value' and 'index'.
-
         ///C# Kata.FindSmallest(new int[]{ 1, 2 , 3, 4, 5}, "value") // => 1 Kata.FindSmallest(new int[]{ 1, 2 , 3, 4, 5}, "index") // => 0
         /// </summary>
         /// <param name="numbers">Input array</param>
@@ -668,14 +625,11 @@ namespace KataTraining
 
         /// <summary>
         /// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
-
         ///Example:
-
         ///Kata.HighAndLow("1 2 3 4 5"); // return "5 1"
         ///Kata.HighAndLow("1 2 -3 4 5"); // return "5 -3"
         ///Kata.HighAndLow("1 9 3 4 -5"); // return "9 -5"
         ///Notes:
-
         ///All numbers are valid Int32, no need to validate them.
         ///There will always be at least one number in the input string.
         ///Output string must be two numbers separated by a single space, and highest number is first.
@@ -696,13 +650,9 @@ namespace KataTraining
 
         /// <summary>
         /// Write a function that will encrypt a given sentence into International Morse Code, both the input and out puts will be strings.
-
         ///Characters should be separated by a single space. Words should be separated by a triple space.
-
-        //For example, "HELLO WORLD" should return -> ".... . .-.. .-.. --- .-- --- .-. .-.. -.."
-
+        ///For example, "HELLO WORLD" should return -> ".... . .-.. .-.. --- .-- --- .-. .-.. -.."
         ///To find out more about Morse Code follow this link: https://en.wikipedia.org/wiki/Morse_code
-
         ///A preloaded object/dictionary/hash called CHAR_TO_MORSE will be provided to help convert characters to Morse Code.
         /// </summary>
         /// <param name="englishStr">String in English</param>
