@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text;
 
 namespace KataTraining
 {
@@ -482,22 +484,25 @@ namespace KataTraining
             var result = string.Empty;
             if (listOfArt.Length == 0 || listOfFirstLetter.Length == 0)
                 return result;
-            var ch = ' ';
-            int num = 0;
-            List<string> temp = new List<string>();
-            for (int i = 0; i < listOfFirstLetter.Length; i++)
+            char ch = ' ';
+            int sum = 0;
+            for(int i = 0; i < listOfFirstLetter.Length; i++)
             {
-                ch = char.Parse(listOfFirstLetter[i]);
-                if (ch == char.Parse(listOfArt.First()))
+                ch = listOfFirstLetter[i].ToCharArray().First();
+                foreach(var item in listOfArt)
                 {
-                    foreach (var s in listOfArt)
+                    if (ch == item.ToCharArray().First())
                     {
-                        num += Int32.Parse(string.Concat(
-                                    String.Concat(s.Where(c => Char.IsNumber(c))
+                        sum+= Int32.Parse(string.Concat(
+                                    String.Concat(item.Where(c => Char.IsNumber(c))
                                         .Aggregate(string.Empty, (current, c) => current + c))));
                     }
-                    temp.Add("(" + ch + " : " + num + ")");
                 }
+                if(i != listOfFirstLetter.Length - 1)
+                    result += "(" + ch + " : " + sum + ") - ";
+                else 
+                    result+= "(" + ch + " : " + sum + ")";
+                sum = 0;
             }
             return result;
         }
@@ -565,10 +570,29 @@ namespace KataTraining
         }
 
 
-        //    public static double CalculateAreaOfCircle(string radius)
-        //{   
-        //    return PI*r*r;
-        //}
+        /// <summary>
+        /// Complete the function circleArea so that it will return the area of a circle with the given radius. Round the returned number to two decimal places (except for Haskell). If the radius is not positive or not a number, return false.
+        ///Example:
+        ///Kata.CalculateAreaOfCircle("-123"); //throws ArgumentException
+        ///Kata.CalculateAreaOfCircle("0"); //throws ArgumentException
+        ///Kata.CalculateAreaOfCircle("43.2673"); //return 5881.25
+        ///Kata.CalculateAreaOfCircle("68"); //return 14526.72
+        ///Kata.CalculateAreaOfCircle("number"); //throws ArgumentException
+        /// </summary>
+        /// <param name="radius">Input value</param>
+        /// <returns>Area of the circle</returns>
+        public static double CalculateAreaOfCircle(string radius)
+        {
+            var r = 0.0;
+            var result = 0.0;
+            if(!double.TryParse(radius,out r)
+                || r == 0.0 
+                || r < 0
+                || radius.ToCharArray().Contains(','))
+                throw new ArgumentException();
+            result = Math.PI * r * r;
+            return Math.Round(result,2);
+        }
 
         /// <summary>
         /// Write a function that takes in a binary string and returns the equivalent decoded text (the text is ASCII encoded).
@@ -699,7 +723,6 @@ namespace KataTraining
             result += sec > 9 ? sec.ToString() : "0" + sec.ToString();
             return result;
         }
-
     }
 
 

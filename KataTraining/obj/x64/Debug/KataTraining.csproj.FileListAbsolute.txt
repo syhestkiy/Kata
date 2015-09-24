@@ -1,6 +1,0 @@
-E:\Cloud\GitHub\KataTraining\KataTraining\bin\x64\Debug\KataTraining.exe.config
-E:\Cloud\GitHub\KataTraining\KataTraining\bin\x64\Debug\KataTraining.exe
-E:\Cloud\GitHub\KataTraining\KataTraining\bin\x64\Debug\KataTraining.pdb
-E:\Cloud\GitHub\KataTraining\KataTraining\obj\x64\Debug\KataTraining.exe
-E:\Cloud\GitHub\KataTraining\KataTraining\obj\x64\Debug\KataTraining.pdb
-E:\Cloud\GitHub\KataTraining\KataTraining\obj\x64\Debug\KataTraining.csprojResolveAssemblyReference.cache
