@@ -30,20 +30,8 @@ namespace KataTraining
             //Console.WriteLine(Equals("13 17 31 37 71 73 79 97", Kata.BackwardsPrime(1, 100)));
             //Console.WriteLine(Equals("9923 9931 9941 9967", Kata.BackwardsPrime(9900, 10000)));
 
-            //var result = Kata.IsPrime(100);
-            //var backwardsPrime = new List<long>();
-            //foreach (var prime in result)
-            //{
-            //    var arr=prime.ToString().ToCharArray().Reverse().Aggregate(string.Empty, (current, a) => current + a);
-            //    var r = arr.Aggregate(string.Empty, (current, a) => current + a);
-            //}
-
-            //Console.WriteLine("2154937");
-            //Console.WriteLine(Kata.DescendingOrder(2154937));
-
-            //Console.WriteLine();
-
-            Console.WriteLine( Kata.ToMorse("Hello"));
+            
+            Console.WriteLine( Kata.GetReadableTime(86399));
 
             DateTime endTime = DateTime.Now;
             Console.WriteLine(new TimeSpan(endTime.Ticks - startTime.Ticks));
