@@ -28,7 +28,7 @@ namespace KataTraining
             }
             return capitals;
         }
-        
+
         /// <summary>
         /// In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
         ///Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an exception of type ArgumentOutOfRangeException (C#) or IllegalArgumentException (Java).
@@ -567,7 +567,7 @@ namespace KataTraining
 
         //    public static double CalculateAreaOfCircle(string radius)
         //{   
-            //    return PI*r*r;
+        //    return PI*r*r;
         //}
 
         /// <summary>
@@ -677,6 +677,29 @@ namespace KataTraining
             return result;
         }
 
+        /// <summary>
+        /// Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+        ///HH = hours, padded to 2 digits, range: 00 - 99
+        ///MM = minutes, padded to 2 digits, range: 00 - 59
+        ///SS = seconds, padded to 2 digits, range: 00 - 59
+        ///The maximum time never exceeds 359999 (99:59:59)
+        ///You can find some examples in the test fixtures.
+        /// </summary>
+        /// <param name="seconds">Input value</param>
+        /// <returns>Time value in format HH:MM:SS</returns>
+        public static string GetReadableTime(int seconds)
+        {
+            int hours = 0, mins = 0, sec = 0;
+            string result = string.Empty;
+            hours = seconds / 3600;
+            mins = (seconds % 3600) / 60;
+            sec = seconds % 60;
+            result += hours > 9 ? hours + ":" : "0" + hours + ":";
+            result += mins > 9 ? mins + ":" : "0" + mins + ":";
+            result += sec > 9 ? sec.ToString() : "0" + sec.ToString();
+            return result;
+        }
+
     }
 
 
@@ -697,10 +720,10 @@ namespace KataTraining
                 {'f', "..-."},  {'g', "--."},   {'h', "...."},
                 {'i', ".."},    {'j', ".---"},  {'k', "-.-"},
                 {'l', ".-.."},  {'m', "--"},    {'n', "-."},
-                {'o', "---"},   {'p', ".--."},  {'q', "--.-"},  
+                {'o', "---"},   {'p', ".--."},  {'q', "--.-"},
                 {'r', ".-."},   {'s', "..."},   {'t', "-"},
                 {'u', "..-"},   {'v', "...-"},  {'w', ".--"},
                 {'x', "-..-"},  {'y', "-.--"},  {'z', "--.."}
             };
-    }    
+    }
 }
