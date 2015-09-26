@@ -478,7 +478,7 @@ namespace KataTraining
         /// </summary>
         /// <param name="listOfArt"></param>
         /// <param name="listOfFirstLetter"></param>
-        /// <returns></returns>
+        /// <returns></returns> 
         public static string StockSummary(String[] listOfArt, String[] listOfFirstLetter)
         {
             var result = string.Empty;
