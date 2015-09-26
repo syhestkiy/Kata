@@ -770,28 +770,25 @@ namespace KataTraining
 
             if (num1.Count() != num2.Count())
             {
-                if (num1.Count() > num2.Count())
+                int count1 = num1.Count(),count2=num2.Count();
+                if (count1 > count2)
                 {
-                    num2.Reverse();
-                    for (int i = 0; i < num1.Count() + 1 - num2.Count(); i++)
-                        num2.Add('0');
-                    num2.Reverse();
+                    for (int i = 0; i < count1 - count2; i++)
+                        num2.Insert(0,'0');                    
                 }
 
-                if (num1.Count() < num2.Count())
+                if (count1 < count2)
                 {
-                    num1.Reverse();
-                    for (int i = 0; i < num2.Count() + 1 - num1.Count(); i++)
-                        num1.Add('0');
-                    num1.Reverse();
+                    for (int i = 0; i < count2 - count1; i++)
+                        num1.Insert(0,'0');
                 }
             }
 
             int op1 = 0, op2 = 0, tempRes = 0, p = 0;
             for (int i = num1.Count() - 1; i > -1; i--)
             {
-                op1 = Int32.Parse(num1[i].ToString());
-                op2 = Int32.Parse(num2[i].ToString());
+                op1 = int.Parse(num1[i].ToString());
+                op2 = int.Parse(num2[i].ToString());
                 tempRes = op1 + op2 + p;
                 p = 0;
                 if (tempRes > 9)
@@ -804,7 +801,7 @@ namespace KataTraining
             if (p > 0)
                 result += p;
 
-            return String.Concat(result.ToList().Reverse<char>());
+            return string.Concat(result.ToList().Reverse<char>());
         }
     }
 
