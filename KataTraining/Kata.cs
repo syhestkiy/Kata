@@ -486,22 +486,22 @@ namespace KataTraining
                 return result;
             char ch = ' ';
             int sum = 0;
-            for(int i = 0; i < listOfFirstLetter.Length; i++)
+            for (int i = 0; i < listOfFirstLetter.Length; i++)
             {
                 ch = listOfFirstLetter[i].ToCharArray().First();
-                foreach(var item in listOfArt)
+                foreach (var item in listOfArt)
                 {
                     if (ch == item.ToCharArray().First())
                     {
-                        sum+= Int32.Parse(string.Concat(
+                        sum += Int32.Parse(string.Concat(
                                     String.Concat(item.Where(c => Char.IsNumber(c))
                                         .Aggregate(string.Empty, (current, c) => current + c))));
                     }
                 }
-                if(i != listOfFirstLetter.Length - 1)
+                if (i != listOfFirstLetter.Length - 1)
                     result += "(" + ch + " : " + sum + ") - ";
-                else 
-                    result+= "(" + ch + " : " + sum + ")";
+                else
+                    result += "(" + ch + " : " + sum + ")";
                 sum = 0;
             }
             return result;
@@ -585,13 +585,13 @@ namespace KataTraining
         {
             var r = 0.0;
             var result = 0.0;
-            if(!double.TryParse(radius,out r)
-                || r == 0.0 
+            if (!double.TryParse(radius, out r)
+                || r == 0.0
                 || r < 0
                 || radius.ToCharArray().Contains(','))
                 throw new ArgumentException();
             result = Math.PI * r * r;
-            return Math.Round(result,2);
+            return Math.Round(result, 2);
         }
 
         /// <summary>
@@ -722,6 +722,89 @@ namespace KataTraining
             result += mins > 9 ? mins + ":" : "0" + mins + ":";
             result += sec > 9 ? sec.ToString() : "0" + sec.ToString();
             return result;
+        }
+
+        /// <summary>
+        /// Valid braces
+        ///Write a function called validBraces that takes a string of braces, and determines if the order of the braces is valid.validBraces should return true if the string is valid, and false if it's invalid.
+        ///This Kata is similar to the Valid Parentheses Kata, but introduces four new characters.Open and closed brackets, and open and closed curly braces.Thanks to @arnedag for the idea!
+        ///All input strings will be nonempty, and will only consist of open parentheses '(' , closed parentheses ')', open brackets '[', closed brackets ']', open curly braces '{' and closed curly braces '}'.
+        ///What is considered Valid? A string of braces is considered valid if all braces are matched with the correct brace.
+        ///For example:
+        ///'(){}[]' and '([{}])' would be considered valid, while '(}', '[(])', and '[({})](]' would be considered invalid.
+        /// </summary>
+        /// <param name="braces">Input string wiht braces</param>
+        /// <returns>If input string valid -> true else false</returns>
+        //public static bool ValidBraces(string braces)
+        //{
+        //    bool result = false;
+        //    var openBraces = new List<char>();
+        //    var closeBraces = new List<char>();
+        //    for (int i = 0; i < braces.Length; i++)
+        //    {
+        //        if (braces[i] == '(' || braces[i] == '[' || braces[i] == '{')
+        //            openBraces.Add(braces[i]);
+        //        if (braces[i] == '(' || braces[i] == ']' || braces[i] == '}')
+        //            openBraces.Add(braces[i]);
+        //    }
+
+        //    return result;
+        //}
+
+        /// <summary>
+        /// Sum string as number
+        ///Given the string representations of two integers, return the string representation of the sum of those integers.
+        ///For example:
+        ///sumStrings('1','2') // => '3'
+        ///C# sumStrings("1","2") // => "3"
+        ///A string representation of an integer will contain no characters besides the ten numerals "0" to "9".
+        /// </summary>
+        /// <param name="a">First num</param>
+        /// <param name="b">Second num</param>
+        /// <returns>a+b</returns>
+        public static string SumStrings(string a, string b)
+        {
+            string result = string.Empty;
+            var num1 = a.ToList();
+            var num2 = b.ToList();
+
+            if (num1.Count() != num2.Count())
+            {
+                if (num1.Count() > num2.Count())
+                {
+                    num2.Reverse();
+                    for (int i = 0; i < num1.Count() + 1 - num2.Count(); i++)
+                        num2.Add('0');
+                    num2.Reverse();
+                }
+
+                if (num1.Count() < num2.Count())
+                {
+                    num1.Reverse();
+                    for (int i = 0; i < num2.Count() + 1 - num1.Count(); i++)
+                        num1.Add('0');
+                    num1.Reverse();
+                }
+            }
+
+            int op1 = 0, op2 = 0, tempRes = 0, p = 0;
+            for (int i = num1.Count() - 1; i > -1; i--)
+            {
+                op1 = Int32.Parse(num1[i].ToString());
+                op2 = Int32.Parse(num2[i].ToString());
+                tempRes = op1 + op2 + p;
+                p = 0;
+                if (tempRes > 9)
+                {
+                    p = 1;
+                    tempRes = tempRes % 10;
+                }
+                result += tempRes;
+            }
+            if (p > 0)
+                result += p;
+
+            return String.Concat(result.ToList().Reverse<char>());
         }
     }
 

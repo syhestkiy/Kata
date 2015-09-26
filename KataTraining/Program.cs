@@ -31,7 +31,8 @@ namespace KataTraining
             //Console.WriteLine(Equals("9923 9931 9941 9967", Kata.BackwardsPrime(9900, 10000)));
 
             
-            Console.WriteLine( Kata.GetReadableTime(86399));
+            Console.WriteLine(Kata.SumStrings("123", "456"));
+            
 
             DateTime endTime = DateTime.Now;
             Console.WriteLine(new TimeSpan(endTime.Ticks - startTime.Ticks));
