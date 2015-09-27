@@ -869,6 +869,7 @@ namespace KataTraining
             return result;
         }
 
+
         public static string IntToBin(int num)
         {
             return Convert.ToString(num, 2);
