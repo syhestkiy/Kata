@@ -831,6 +831,50 @@ namespace KataTraining
 
             return result = string.Concat(sum);
         }
+
+        #region BetaKatas
+
+        public static string TugOWar(int[][] teams)
+        {
+            string result = string.Empty;
+            var firstTeam = new List<int>();
+            var secondTeam = new List<int>();
+            for (int i = 0; i < 5; i++)
+            {
+                firstTeam.Add(teams[0][i]);
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                secondTeam.Add(teams[1][i]);
+            }
+            if (firstTeam.Sum() == secondTeam.Sum())
+            {
+                secondTeam.Reverse();
+                bool areEqual = false;
+                for (int i = firstTeam.Count() - 1; i > -1; i--)
+                {
+                    if (firstTeam[i] == secondTeam[i])
+                        areEqual = true;
+                    else
+                    {
+                        result = (firstTeam[i] > secondTeam[i]) ? "Team 1 wins!" : "Team 2 wins!";
+                        break;
+                    }
+                }
+                if (areEqual)
+                    result = "It's a tie!";
+            }
+            else
+                result = (firstTeam.Sum() > secondTeam.Sum()) ? "Team 1 wins!" : "Team 2 wins!";
+            return result;
+        }
+
+        public static string IntToBin(int num)
+        {
+            return Convert.ToString(num, 2);
+        }
+
+        #endregion
     }
 
 
