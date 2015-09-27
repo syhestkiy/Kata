@@ -30,9 +30,13 @@ namespace KataTraining
             //Console.WriteLine(Equals("13 17 31 37 71 73 79 97", Kata.BackwardsPrime(1, 100)));
             //Console.WriteLine(Equals("9923 9931 9941 9967", Kata.BackwardsPrime(9900, 10000)));
 
-            
-            Console.WriteLine(Kata.SumStrings("12300000000000000000000000000000000000000000000000000000000123", "456"));
-            
+
+            //Console.WriteLine(Kata.ValidBraces("(){}[]"));
+            //Console.WriteLine(Kata.ValidBraces("(}"));
+            //Console.WriteLine(Kata.ValidBraces("[(])"));
+            //Console.WriteLine(Kata.ValidBraces("([{}])"));
+            Console.WriteLine(Kata.SumStrings("9223372036854775807", "1000000000000000000000000000000000000000000"));
+
 
             DateTime endTime = DateTime.Now;
             Console.WriteLine(new TimeSpan(endTime.Ticks - startTime.Ticks));

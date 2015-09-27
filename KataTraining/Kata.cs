@@ -735,21 +735,40 @@ namespace KataTraining
         /// </summary>
         /// <param name="braces">Input string wiht braces</param>
         /// <returns>If input string valid -> true else false</returns>
-        //public static bool ValidBraces(string braces)
-        //{
-        //    bool result = false;
-        //    var openBraces = new List<char>();
-        //    var closeBraces = new List<char>();
-        //    for (int i = 0; i < braces.Length; i++)
-        //    {
-        //        if (braces[i] == '(' || braces[i] == '[' || braces[i] == '{')
-        //            openBraces.Add(braces[i]);
-        //        if (braces[i] == '(' || braces[i] == ']' || braces[i] == '}')
-        //            openBraces.Add(braces[i]);
-        //    }
-
-        //    return result;
-        //}
+        public static bool ValidBraces(string braces)
+        {
+            bool result = false;
+            var openBraces = new List<char>();
+            var closeBraces = new List<char>();
+            for (int i = 0; i < braces.Length; i++)
+            {
+                if (braces[i] == '(' || braces[i] == '[' || braces[i] == '{')
+                    openBraces.Add(braces[i]);
+                if (braces[i] == ')' || braces[i] == ']' || braces[i] == '}')
+                    closeBraces.Add(braces[i]);                
+            }
+            closeBraces.Reverse();
+            string temp = string.Empty;
+            if (closeBraces.Count() == openBraces.Count())
+            {
+                for(int i = 0; i < openBraces.Count(); i++)
+                {
+                    temp = openBraces[i].ToString() + closeBraces[i].ToString();
+                    if (Equals(temp, "()") || Equals(temp, "[]") || Equals(temp, "{}"))
+                        result = true;
+                    else
+                    {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
+        }
 
         /// <summary>
         /// Sum string as number
@@ -800,8 +819,17 @@ namespace KataTraining
             }
             if (p > 0)
                 result += p;
+            
+            var sum = result.ToList().Reverse<char>().ToList();
+            for (int i=0;i<sum.Count();i++)
+            {
+                var value = Int32.Parse(result[i].ToString());
+                if (value > 0)
+                    break;
+                sum.RemoveAt(i);
+            }
 
-            return string.Concat(result.ToList().Reverse<char>());
+            return result = string.Concat(sum);
         }
     }
 
