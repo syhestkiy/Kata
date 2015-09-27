@@ -35,7 +35,8 @@ namespace KataTraining
             //Console.WriteLine(Kata.ValidBraces("(}"));
             //Console.WriteLine(Kata.ValidBraces("[(])"));
             //Console.WriteLine(Kata.ValidBraces("([{}])"));
-            Console.WriteLine(Kata.SumStrings("9223372036854775807", "1000000000000000000000000000000000000000000"));
+            Console.WriteLine(Kata.TugOWar(new int[][] { new int[] { 1, 2, 3, 4, 6 }, new int[] { 5, 4, 3, 2, 1 } }));
+            Console.WriteLine(Kata.TugOWar(new int[][] { new int[] { 1, 2, 3, 5, 4 }, new int[] { 5, 4, 3, 2, 1 } }));
 
 
             DateTime endTime = DateTime.Now;
