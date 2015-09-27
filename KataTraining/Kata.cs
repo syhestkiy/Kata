@@ -874,6 +874,18 @@ namespace KataTraining
             return Convert.ToString(num, 2);
         }
 
+
+        public static int AddStrings(string numbers)
+        {
+            int result = 0;
+            numbers.Trim(',');
+            string[] nums = numbers.Split(',');
+            foreach (var n in nums)
+            {
+                result += Int32.Parse(n.ToString());
+            }
+            return result;
+        }
         #endregion
     }
 
