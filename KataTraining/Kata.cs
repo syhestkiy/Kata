@@ -832,6 +832,27 @@ namespace KataTraining
             return result = string.Concat(sum);
         }
 
+        public static List<int> PascalsTriangle(int n)
+        {
+            var result = new List<int>();
+            int[,] triangle = new int[n,n];
+            int i = 0, j = 0;
+            for (int k = 0; k < n; k++)
+                triangle[i++, j] = 1;
+            i = 1;
+            j = 1;
+            for (int k = 0; k < n - 1; k++)
+                triangle[i++, j++] = 1;
+            for (i = 2; i < n; i++)
+                for (j = 1; j <= i - 1; j++)
+                    triangle[i, j] = triangle[i - 1, j - 1] + triangle[i - 1, j];
+            for (i = 0; i < n; i++)
+                for (j = 0; j < n; j++)
+                    if (triangle[i, j] != 0)
+                        result.Add(triangle[i, j]);
+            return result;
+        }
+
         #region BetaKatas
 
         public static string TugOWar(int[][] teams)
