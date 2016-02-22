@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
+
 
 namespace KataTraining
 {
@@ -10,8 +9,8 @@ namespace KataTraining
     {
         /// <summary>
         /// Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
-        ///Example
-        ///Assert.AreEqual(Kata.Capitals("CodEWaRs"), new int[]{0,3,4,6});
+        /// Example
+        /// Assert.AreEqual(Kata.Capitals("CodEWaRs"), new int[]{0,3,4,6});
         /// </summary>
         /// <param name="word">Input string</param>
         /// <returns>int array which contains indexes of capital chars</returns>
@@ -33,8 +32,8 @@ namespace KataTraining
 
         /// <summary>
         /// In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
-        ///Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an exception of type ArgumentOutOfRangeException (C#) or IllegalArgumentException (Java).
-        ///More details about factorial can be found here: http://en.wikipedia.org/wiki/Factorial
+        /// Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an exception of type ArgumentOutOfRangeException (C#) or IllegalArgumentException (Java).
+        /// More details about factorial can be found here: http://en.wikipedia.org/wiki/Factorial
         /// </summary>
         /// <param name="n">Input value</param>
         /// <returns>Factorial of n</returns>
@@ -51,16 +50,16 @@ namespace KataTraining
         }
         /// <summary>
         /// Why would we want to stop to only 50 shades of grey? Let's see to how many we can go.
-        ///Write a function that takes a number n as a parameter and return an array containing n shades of grey in hexadecimal code (#aaaaaa for example). The array should be sorted in ascending order starting with #010101, #020202, etc. (using lower case letters).
-        ///using System;
-        ///public static class Kata {
+        /// Write a function that takes a number n as a parameter and return an array containing n shades of grey in hexadecimal code (#aaaaaa for example). The array should be sorted in ascending order starting with #010101, #020202, etc. (using lower case letters).
+        /// using System;
+        /// public static class Kata {
         ///  public static class ShadesOfGrey(int n) {
         ///    // returns n shades of grey in an array
         ///  }
-        ///}
-        ///As a reminder, the grey color is composed by the same number of red, green and blue: #010101, #aeaeae, #555555, etc. Also, #000000 and #ffffff are not accepted values.
-        ///When n is negative, just return an empty array. If n is higher than 254, just return an array of 254 elements.
-        ///Have fun
+        /// }
+        /// As a reminder, the grey color is composed by the same number of red, green and blue: #010101, #aeaeae, #555555, etc. Also, #000000 and #ffffff are not accepted values.
+        /// When n is negative, just return an empty array. If n is higher than 254, just return an array of 254 elements.
+        /// Have fun
         /// </summary>
         /// <param name="n"></param>
         /// <returns>String array with shades of gray</returns>
@@ -96,10 +95,10 @@ namespace KataTraining
         }
         /// <summary>
         /// Description:
-        ///Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons.
-        ///Your mission: 
-        ///Write a function called checkCoupon to verify that a coupon is valid and not expired. If the coupon is good, return true. Otherwise, return false.
-        ///A coupon expires at the END of the expiration date. All dates will be passed in as strings in this format: "June 15, 2014"
+        /// Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons.
+        /// Your mission: 
+        /// Write a function called checkCoupon to verify that a coupon is valid and not expired. If the coupon is good, return true. Otherwise, return false.
+        /// A coupon expires at the END of the expiration date. All dates will be passed in as strings in this format: "June 15, 2014"
         /// </summary>
         /// <param name="enteredCode"></param>
         /// <param name="correctCode"></param>
@@ -745,13 +744,13 @@ namespace KataTraining
                 if (braces[i] == '(' || braces[i] == '[' || braces[i] == '{')
                     openBraces.Add(braces[i]);
                 if (braces[i] == ')' || braces[i] == ']' || braces[i] == '}')
-                    closeBraces.Add(braces[i]);                
+                    closeBraces.Add(braces[i]);
             }
             closeBraces.Reverse();
             string temp = string.Empty;
             if (closeBraces.Count() == openBraces.Count())
             {
-                for(int i = 0; i < openBraces.Count(); i++)
+                for (int i = 0; i < openBraces.Count(); i++)
                 {
                     temp = openBraces[i].ToString() + closeBraces[i].ToString();
                     if (Equals(temp, "()") || Equals(temp, "[]") || Equals(temp, "{}"))
@@ -789,17 +788,17 @@ namespace KataTraining
 
             if (num1.Count() != num2.Count())
             {
-                int count1 = num1.Count(),count2=num2.Count();
+                int count1 = num1.Count(), count2 = num2.Count();
                 if (count1 > count2)
                 {
                     for (int i = 0; i < count1 - count2; i++)
-                        num2.Insert(0,'0');                    
+                        num2.Insert(0, '0');
                 }
 
                 if (count1 < count2)
                 {
                     for (int i = 0; i < count2 - count1; i++)
-                        num1.Insert(0,'0');
+                        num1.Insert(0, '0');
                 }
             }
 
@@ -819,9 +818,9 @@ namespace KataTraining
             }
             if (p > 0)
                 result += p;
-            
+
             var sum = result.ToList().Reverse<char>().ToList();
-            for (int i=0;i<sum.Count();i++)
+            for (int i = 0; i < sum.Count(); i++)
             {
                 var value = Int32.Parse(result[i].ToString());
                 if (value > 0)
@@ -835,7 +834,7 @@ namespace KataTraining
         public static List<int> PascalsTriangle(int n)
         {
             var result = new List<int>();
-            int[,] triangle = new int[n,n];
+            int[,] triangle = new int[n, n];
             int i = 0, j = 0;
             for (int k = 0; k < n; k++)
                 triangle[i++, j] = 1;
@@ -905,6 +904,56 @@ namespace KataTraining
             foreach (var n in nums)
             {
                 result += Int32.Parse(n.ToString());
+            }
+            return result;
+        }
+
+        //  We are selling cables with various, non-standard sizes. 
+        //The length of our cables and the orders from customers can only be positive integers. 
+        //Find the cable pieces which will fulfill an order. 
+        //The input is the order as integer and the list of lengths of our cables. 
+        //The result should be the lengths of the needed cables, in descending order, in string, separated by comma. 
+        //If there is no result, return "No result".
+        //  Example
+        //  cableMatching(200, {10,10,23,4,5,67,889,150,50}) should return "150,50"
+        //  cableMatching(83, {10,10,23,4,5,67,889,150,50}) should return "50,23,10"
+        //  cableMatching(12, {10,10,23,4,5,67,889,150,50}) should return "No result"
+        public static string CableMatching(int need, IEnumerable<int> cables)
+        {
+            string result = null;
+            int max = cables.First(), min = cables.First();
+            foreach (var item in cables)
+            {
+                if (max < item)
+                    max = item;
+                if (min > item)
+                    min = item;
+            }
+            if (need < min || need > max)
+                result = "No result";
+
+            return result;
+        }
+
+        /// <summary>
+        /// Move the first letter of each word to the end of it, then add 'ay' to the end of the word.
+        ///Kata.PigIt("Pig latin is cool"); // igPay atinlay siay oolcay
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string PigIt(string str)
+        {
+            string result = String.Empty;
+            var array = str.Split(' ');
+            foreach (var word in array.Select(s => s.ToCharArray()))
+            {
+                for (int i = 1; i < word.Length; i++)
+                {
+                    result += word[i];
+                }
+                result += word[0] + "ay";
+                if (array.Last() != string.Concat(word))
+                    result += ' ';
             }
             return result;
         }
