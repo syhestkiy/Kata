@@ -45,9 +45,10 @@ namespace KataTraining
             }
 
             if (n > 1)
-                n = n * Factorial(n - 1);
+                n = n*Factorial(n - 1);
             return n;
         }
+
         /// <summary>
         /// Why would we want to stop to only 50 shades of grey? Let's see to how many we can go.
         /// Write a function that takes a number n as a parameter and return an array containing n shades of grey in hexadecimal code (#aaaaaa for example). The array should be sorted in ascending order starting with #010101, #020202, etc. (using lower case letters).
@@ -65,7 +66,7 @@ namespace KataTraining
         /// <returns>String array with shades of gray</returns>
         public static string[] ShadesOfGray(int n)
         {
-            string[] shadesOfGray = { };
+            string[] shadesOfGray = {};
 
             if (n < 0)
                 return shadesOfGray = new string[0];
@@ -81,18 +82,21 @@ namespace KataTraining
                 {
                     if (i < 16)
                     {
-                        var s = "#" + "0" + i.ToString("X").ToLower() + "0" + i.ToString("X").ToLower() + "0" + i.ToString("X").ToLower();
+                        var s = "#" + "0" + i.ToString("X").ToLower() + "0" + i.ToString("X").ToLower() + "0" +
+                                i.ToString("X").ToLower();
                         shadesOfGray[i - 1] = s;
                     }
                     else
                     {
-                        shadesOfGray[i - 1] = "#" + i.ToString("X").ToLower() + i.ToString("X").ToLower() + i.ToString("X").ToLower();
+                        shadesOfGray[i - 1] = "#" + i.ToString("X").ToLower() + i.ToString("X").ToLower() +
+                                              i.ToString("X").ToLower();
                     }
                 }
 
             }
             return shadesOfGray;
         }
+
         /// <summary>
         /// Description:
         /// Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons.
@@ -148,6 +152,7 @@ namespace KataTraining
                 arr[i] = '#';
             return new string(arr);
         }
+
         /// <summary>
         /// Return the number (count) of vowels in the given string.
         ///We will consider a, e, i, o, and u as vowels for this Kata.
@@ -165,6 +170,7 @@ namespace KataTraining
 
             return vowelCount;
         }
+
         /// <summary>
         /// Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given numbers differs from the others. Bob observed that one number usually differs from the others in evenness. Help Bob � to check his answers, he needs a program that among the given numbers finds one that is different in evenness, and return a position of this number.
         ///! Keep in mind that your task is to help Bob solve a real IQ test, which means indexes of the elements start from 1 (not 0)
@@ -186,7 +192,7 @@ namespace KataTraining
 
             for (int i = 0; i < nums.Count(); i++)
             {
-                if (nums[i] % 2 == 0)
+                if (nums[i]%2 == 0)
                 {
                     numbersOfEven++;
                     indexEven = i + 1;
@@ -202,6 +208,7 @@ namespace KataTraining
             index = numbersOfEven > 1 ? indexUneven : indexEven;
             return index;
         }
+
         /// <summary>
         /// Find the sum of the digits of all the numbers from 1 to N (both ends included).
         ///For N = 10 the sum is 1+2+3+4+5+6+7+8+9+(1+0) = 46
@@ -241,7 +248,7 @@ namespace KataTraining
             {
                 if (i == 1 || i == 2 || i == 3 || i == 5 || i == 7)
                     i = i;
-                if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0)
+                if (i%2 != 0 && i%3 != 0 && i%5 != 0 && i%7 != 0)
                     primes.Add(i);
             }
 
@@ -257,7 +264,7 @@ namespace KataTraining
                             .Reverse()
                             .Aggregate(string.Empty, (current, a) => current + a));
 
-                    if (c % 2 != 0 && c % 3 != 0 && c % 5 != 0 && c % 7 != 0 && c % 11 != 0)
+                    if (c%2 != 0 && c%3 != 0 && c%5 != 0 && c%7 != 0 && c%11 != 0)
                         backwardsPrime.Add(prime);
                 }
             }
@@ -285,7 +292,7 @@ namespace KataTraining
         /// <returns></returns>
         public static int NthElementOfFibonachiSequence(int n)
         {
-            List<int> fs = new List<int> { 0, 1 };
+            List<int> fs = new List<int> {0, 1};
             switch (n)
             {
                 case 0:
@@ -304,6 +311,7 @@ namespace KataTraining
         public static string Swap(string str)
         {
             #region Obsolite Code
+
             //var arr = str.ToCharArray();
             //str = string.Empty;
             //foreach (var t in arr)
@@ -315,9 +323,13 @@ namespace KataTraining
             //    else
             //        str += t;
             //}
+
             #endregion
+
             return String.Concat(str.Select(c => Char.IsLower(c) ? Char.ToUpper(c) : Char.ToLower(c)));
+
             #region Obsolite Code
+
             //var arr = str.ToCharArray();
             //str = string.Empty;
             //foreach (var c in arr)
@@ -328,6 +340,7 @@ namespace KataTraining
             //        str += Char.ToUpper(c);
             //}
             //return str;
+
             #endregion
         }
 
@@ -343,7 +356,9 @@ namespace KataTraining
         /// <returns></returns>
         public static int FilterString(string s)
         {
-            return Int32.Parse(String.Concat(s.Where(c => Char.IsNumber(c)).Aggregate(string.Empty, (current, c) => current + c)));
+            return
+                Int32.Parse(
+                    String.Concat(s.Where(c => Char.IsNumber(c)).Aggregate(string.Empty, (current, c) => current + c)));
         }
 
         /// <summary>
@@ -441,7 +456,7 @@ namespace KataTraining
             {
                 if (i == 2 || i == 3 || i == 5 || i == 7)
                     primes.Add(i);
-                if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0 && i % 9 != 0)
+                if (i%2 != 0 && i%3 != 0 && i%5 != 0 && i%7 != 0 && i%9 != 0)
                     primes.Add(i);
             }
             return (primes.Sum()) == number;
@@ -454,11 +469,12 @@ namespace KataTraining
             {
                 if (i == 2 || i == 3 || i == 5 || i == 7)
                     primes.Add(i);
-                if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0)
+                if (i%2 != 0 && i%3 != 0 && i%5 != 0 && i%7 != 0)
                     primes.Add(i);
             }
             return primes;
         }
+
         /// <summary>
         /// Help the bookseller!
         /// A bookseller has lots of books classified in 26 categories labeled A, B, ... Z. Each book has a code c of 3, 4, 5 or more capitals letters. The 1st letter of a code is the capital letter of the book category. In the bookseller's stocklist each code c is followed by a space and by a positive integer n (int n >= 0) which indicates the quantity of books of this code in stock.
@@ -493,8 +509,8 @@ namespace KataTraining
                     if (ch == item.ToCharArray().First())
                     {
                         sum += Int32.Parse(string.Concat(
-                                    String.Concat(item.Where(c => Char.IsNumber(c))
-                                        .Aggregate(string.Empty, (current, c) => current + c))));
+                            String.Concat(item.Where(c => Char.IsNumber(c))
+                                .Aggregate(string.Empty, (current, c) => current + c))));
                     }
                 }
                 if (i != listOfFirstLetter.Length - 1)
@@ -518,7 +534,7 @@ namespace KataTraining
         /// <returns>Missing element</returns>
         public static int GetMissingElement(int[] superImportantArray)
         {
-            var ideal = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var ideal = new[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
             int result = 0;
             Array.Sort(superImportantArray);
             for (int i = 0; i < superImportantArray.Length; i++)
@@ -544,6 +560,7 @@ namespace KataTraining
         public static int DescendingOrder(int num)
         {
             #region ObsoliteCode
+
             //var arr = num.ToString().ToCharArray();
             //int[] arrOfInts = new int[arr.Length];
             //for (int i = 0; i < arr.Count(); i++)
@@ -557,7 +574,9 @@ namespace KataTraining
             //{
             //    result += arrOfInts[i];
             //}
+
             #endregion
+
             var arr = num.ToString().ToCharArray();
             Array.Sort(arr);
             Array.Reverse(arr);
@@ -589,7 +608,7 @@ namespace KataTraining
                 || r < 0
                 || radius.ToCharArray().Contains(','))
                 throw new ArgumentException();
-            result = Math.PI * r * r;
+            result = Math.PI*r*r;
             return Math.Round(result, 2);
         }
 
@@ -613,7 +632,7 @@ namespace KataTraining
                 temp += binary[i];
                 if (temp.Length == 8)
                 {
-                    text += (char)(Convert.ToInt32(temp, 2));
+                    text += (char) (Convert.ToInt32(temp, 2));
                     temp = string.Empty;
                 }
             }
@@ -714,9 +733,9 @@ namespace KataTraining
         {
             int hours = 0, mins = 0, sec = 0;
             string result = string.Empty;
-            hours = seconds / 3600;
-            mins = (seconds % 3600) / 60;
-            sec = seconds % 60;
+            hours = seconds/3600;
+            mins = (seconds%3600)/60;
+            sec = seconds%60;
             result += hours > 9 ? hours + ":" : "0" + hours + ":";
             result += mins > 9 ? mins + ":" : "0" + mins + ":";
             result += sec > 9 ? sec.ToString() : "0" + sec.ToString();
@@ -812,7 +831,7 @@ namespace KataTraining
                 if (tempRes > 9)
                 {
                     p = 1;
-                    tempRes = tempRes % 10;
+                    tempRes = tempRes%10;
                 }
                 result += tempRes;
             }
@@ -957,8 +976,65 @@ namespace KataTraining
             }
             return result;
         }
+
+
+        /// <summary>
+        /// Calculator which evaluates expressions in Reverse Polish notation
+        /// </summary>
+        /// <param name="expretion">5 1 2 + 4 * + 3 - is 5+((1+2)*4)-3 </param>
+        /// <returns>result of expression</returns>
+        public static double ReversePolishNotation(string expretion)
+        {
+            var entry = expretion.Split(' ').ToList();
+
+            return 0.0;
+        }
+
+        public static string BinaryToTextAsciiConnersion(string binary)
+        {
+            string result = string.Empty;
+            if (string.IsNullOrEmpty(binary))
+                return result;
+            string[] temp = new string[binary.Length/8];
+            int startIndex = 0, length = 8;
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = binary.Substring(startIndex, length);
+                startIndex += 8;
+            }
+            return temp.Aggregate(result, (current, t) => current + BinToChar(t));
+        }
+
+        #region HelpMethods
+
+        /// <summary>
+        /// Help method for BinaryToTextAsciiConnersion
+        /// </summary>
+        /// <param name="binCode">Binary code of char between 00000000 and 11111111</param>
+        /// <returns>expected char</returns>
+        public static char BinToChar(string binCode)
+        {
+            int charCode = 0;
+            var temp = binCode.ToCharArray();
+            int power = 0;
+            for (int i = temp.Length - 1; i >= 0; i--)
+            {
+                charCode += Int32.Parse(temp[i].ToString())*(int) Math.Pow(2, power);
+                power++;
+            }
+            return (char) charCode;
+        }
+
+        public static double EvaluateExpression(List<string> reversePolishExpression, string operation = null)
+        {
+            return 0.0;
+        }
+
+    #endregion
+
         #endregion
     }
+
 
 
     public class ArgumentException : Exception
