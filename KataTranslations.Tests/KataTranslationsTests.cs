@@ -21,5 +21,25 @@ namespace KataTranslations.Tests
             //Assert
             Assert.AreEqual(expected, KataTranslations.ValidateString(dictionary, word));
         }
+
+        [TestCase(10, 5, 20)]
+        [TestCase(20, 20, 190)]
+        [TestCase(15, 10, 60)]
+        public void SumOfManyIntsSimpleTest(long n, long m, long expected)
+        {
+            //Assert 
+            Assert.AreEqual(expected, KataTranslations.SumOfManyInts(n, m));
+        }
+
+        [Test]
+        public void SumOfManyIntsAdvansedTest([Random(1, Int32.MaxValue, 10)] long n, [Random(1, Int32.MaxValue, 10)]long m)
+        {
+            //Arrange 
+            Func<long, long> sum = s => (s * (s + 1)) / 2;
+            long expected = sum(m - 1) * (n / m) + sum(n % m);
+            
+            //Assert 
+            Assert.AreEqual(expected, KataTranslations.SumOfManyInts(n, m));
+        }
     }
 }
