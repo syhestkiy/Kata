@@ -57,9 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KataTranslations\KataTranslations.csproj">
+    <ProjectReference Include="..\KataTranslations\Kata.csproj">
       <Project>{6a9da771-93aa-4e0e-8340-e98548e4f3ab}</Project>
-      <Name>KataTranslations</Name>
+      <Name>Kata</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

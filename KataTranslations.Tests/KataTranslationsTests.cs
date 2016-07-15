@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace KataTranslations.Tests
+namespace Kata.Tests
 {
     [TestFixture]
     public class KataTranslationsTests
@@ -19,7 +19,7 @@ namespace KataTranslations.Tests
         public void ValidStringBasicTest(string[] dictionary, string word, bool expected)
         {
             //Assert
-            Assert.AreEqual(expected, KataTranslations.ValidateString(dictionary, word));
+            Assert.AreEqual(expected, Kata.ValidateString(dictionary, word));
         }
 
         [TestCase(10, 5, 20)]
@@ -28,7 +28,7 @@ namespace KataTranslations.Tests
         public void SumOfManyIntsSimpleTest(long n, long m, long expected)
         {
             //Assert 
-            Assert.AreEqual(expected, KataTranslations.SumOfManyInts(n, m));
+            Assert.AreEqual(expected, Kata.SumOfManyInts(n, m));
         }
 
         [Test]
@@ -39,7 +39,33 @@ namespace KataTranslations.Tests
             long expected = sum(m - 1) * (n / m) + sum(n % m);
             
             //Assert 
-            Assert.AreEqual(expected, KataTranslations.SumOfManyInts(n, m));
+            Assert.AreEqual(expected, Kata.SumOfManyInts(n, m));
+        }
+
+        [TestCase("", false)]
+        [TestCase("12.b.3.a", false)]
+        [TestCase("abc.def.ghi.jkl", false)]
+        [TestCase("123.456.789.0", false)]
+        [TestCase("12.34.56", false)]
+        [TestCase("256.1.2.3", false)]
+        [TestCase("1.2.3.4.5", false)]
+        [TestCase("123,45,67,89", false)]
+        [TestCase(" 1.2.3.4", false)]
+        [TestCase("1.2.3.4 ", false)]
+
+        [TestCase("127.0.0.1", true)]
+        [TestCase("1.1.1.1", true)]
+        [TestCase("4.4.4.4", true)]
+        [TestCase("255.255.255.255", true)]
+        [TestCase("192.168.0.1", true)]
+        [TestCase("255.0.1.0", true)]
+        [TestCase("54.2.2.2", true)]
+        [TestCase("1.2.3.4", true)]
+        [TestCase("255.127.63.31", true)]
+        [TestCase("32.64.128.255", true)]
+        public void IpValidationTest(string ip, bool isValid)
+        {
+            Assert.AreEqual(isValid, Kata.IpValidator(ip));
         }
     }
 }

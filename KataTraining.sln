@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataTraining", "KataTraining\KataTraining.csproj", "{6CE2DF8F-466E-4987-A077-06B98EFEA27D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataTranslations", "KataTranslations\KataTranslations.csproj", "{6A9DA771-93AA-4E0E-8340-E98548E4F3AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata", "KataTranslations\Kata.csproj", "{6A9DA771-93AA-4E0E-8340-E98548E4F3AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataTranslations.Tests", "KataTranslations.Tests\KataTranslations.Tests.csproj", "{6BF5F3F4-BC6C-4ACB-B580-2916660171F1}"
 EndProject
